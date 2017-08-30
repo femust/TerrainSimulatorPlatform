@@ -1,0 +1,550 @@
+<?xml version='1.0'?>
+<sdf version='1.4'>
+  <model name="mobile_base">
+  <static> false </static>
+
+<link name="bed">
+
+  <pose>0.340192378865 0 -0.1 0 0 0</pose>
+
+
+   <visual name="visual">
+   <material>
+       <script>
+         <uri>file://media/materials/scripts/gazebo.material</uri>
+         <name>Gazebo/Grey</name>
+       </script>
+     </material>
+      <geometry>
+      <box>
+      <size>1.2 0.8 0.01</size>
+      </box>
+      </geometry>
+    </visual>
+   </link>
+
+<joint type="revolute" name="base">
+<pose>0 0 0 0 0 0</pose>
+<parent>world</parent>
+<child>bed</child>
+<axis>
+<xyz>0 0 1</xyz>
+
+</axis>
+</joint>
+
+<link name="slider1">
+    <kinematic>1</kinematic>
+    <pose>-0.259807621135 0 0 0 0 0</pose>
+    <self_collide>1</self_collide>
+
+     <visual name="visual">
+        <geometry>
+        <box>
+        <size>0.005 0.5 0.001</size>
+        </box>
+        </geometry>
+      </visual>
+
+     <collision name="collision">
+       <geometry>
+       <box>
+       <size>0.005 0.5 0.001</size>
+       </box>
+        </geometry>
+      </collision>
+
+    <inertial>
+    <mass>2.6</mass>
+    </inertial>
+     </link>
+
+<joint type="prismatic" name="base_slider1">
+        <pose>0 0 0 0 0 0</pose>
+        <parent>world</parent>
+        <child>slider1</child>
+
+       <axis>
+         <xyz>1 0 0</xyz>
+         <limit>
+         <lower>0</lower>
+         <upper>1.2</upper>
+       </limit>
+
+        </axis>
+    </joint>
+
+<link name='slider1_support_left'>
+  <pose>-0.259807621135 0.085 0 1.5708 -0.523599 0 </pose>
+  <self_collide>1</self_collide>
+
+<inertial>
+<mass>0.294</mass>
+<pose>0.15 0 0 0 0 0</pose>
+<inertia>
+<ixx>0.004</ixx>
+<ixy>0</ixy>
+<ixz>0</ixz>
+<iyy>0.004</iyy>
+<iyz>0</iyz>
+<izz>0.009</izz>
+</inertia>
+</inertial>
+
+  <collision name='collision'>
+    <pose>0 0 0 0 0 0</pose>
+    <geometry>
+      <mesh>
+        <scale>0.001 0.001 0.001</scale>
+        <uri>model://test/meshes/asm_linkage_300.stl</uri>
+      </mesh>
+    </geometry>
+  </collision>
+
+  <visual name='visual'>
+    <pose>0 0 0 0 0 0</pose>
+    <geometry>
+      <mesh>
+        <scale>0.001 0.001 0.001</scale>
+         <uri>model://test/meshes/asm_linkage_300.stl</uri>
+      </mesh>
+    </geometry>
+  </visual>
+
+</link>
+
+<joint type="revolute" name="slider1_support_left_joint">
+  <pose>0 0 0 0 0 0</pose>
+  <parent>slider1</parent>
+  <child>slider1_support_left</child>
+  <axis>
+    <xyz>0 1 0</xyz>
+
+  </axis>
+</joint>
+
+<link name='slider1_support_right'>
+  <pose>-0.259807621135 -0.085 0 1.5708 -0.523599 0 </pose>
+  <self_collide>1</self_collide>
+
+<inertial>
+<mass>0.294</mass>
+<pose>0.15 0 0 0 0 0</pose>
+<inertia>
+<ixx>0.004</ixx>
+<ixy>0</ixy>
+<ixz>0</ixz>
+<iyy>0.004</iyy>
+<iyz>0</iyz>
+<izz>0.009</izz>
+</inertia>
+</inertial>
+
+  <collision name='collision'>
+    <pose>0 0 0 0 0 0</pose>
+    <geometry>
+      <mesh>
+        <scale>0.001 0.001 0.001</scale>
+        <uri>model://test/meshes/asm_linkage_300.stl</uri>
+      </mesh>
+    </geometry>
+  </collision>
+
+  <visual name='visual'>
+    <pose>0 0 0 0 0 0</pose>
+    <geometry>
+      <mesh>
+        <scale>0.001 0.001 0.001</scale>
+         <uri>model://test/meshes/asm_linkage_300.stl</uri>
+      </mesh>
+    </geometry>
+  </visual>
+
+</link>
+
+<joint type="revolute" name="slider1_support_right_joint">
+  <pose>0 0 0 0 0 0</pose>
+  <parent>slider1</parent>
+  <child>slider1_support_right</child>
+  <axis>
+    <xyz>0 1 0</xyz>
+
+  </axis>
+</joint>
+
+<link name="slider2">
+  <pose>0.259807621135 0 0 0 0 0</pose>
+      <kinematic>1</kinematic>
+      <self_collide>1</self_collide>
+
+<inertial>
+<mass>2.6</mass>
+</inertial>
+
+<collision name="collision">
+ <geometry>
+ <box>
+ <size>0.005 0.5 0.01</size>
+ </box>
+  </geometry>
+ </collision>
+
+  <visual name="visual">
+    <geometry>
+      <box>
+      <size>0.005 0.5 0.01</size>
+      </box>
+    </geometry>
+  </visual>
+
+</link>
+
+<joint type="prismatic" name="base_slider2">
+<pose>0 0 0 0 0 0</pose>
+<parent>world</parent>
+<child>slider2</child>
+<axis>
+<xyz>1 0 0</xyz>
+<limit>
+<lower>-0.519615242271</lower>
+<upper>0.680384757729</upper>
+</limit>
+</axis>
+</joint>
+
+<link name='slider2_support_left'>
+  <pose>0.259807621135 0.055 0 1.5707 3.66519 0</pose>
+  <self_collide>1</self_collide>
+
+<inertial>
+<mass>0.294</mass>
+<pose>0.15 0 0 0 0 0</pose>
+<inertia>
+<ixx>0.004</ixx>
+<ixy>0</ixy>
+<ixz>0</ixz>
+<iyy>0.004</iyy>
+<iyz>0</iyz>
+<izz>0.009</izz>
+</inertia>
+</inertial>
+
+ <collision name='collision'>
+    <pose>0 0 0 0 0 0</pose>
+    <geometry>
+      <mesh>
+        <scale>0.001 0.001 0.001</scale>
+        <uri>model://test/meshes/asm_linkage_300.stl</uri>
+      </mesh>
+    </geometry>
+  </collision>
+
+  <visual name='visual'>
+    <pose>0 0 0 0 0 0</pose>
+    <geometry>
+      <mesh>
+        <scale>0.001 0.001 0.001</scale>
+         <uri>model://test/meshes/asm_linkage_300.stl</uri>
+      </mesh>
+    </geometry>
+  </visual>
+
+</link>
+
+<joint type="revolute" name="slider2_support_left_joint">
+  <pose>0 0 0 0 0 0</pose>
+  <parent>slider2</parent>
+  <child>slider2_support_left</child>
+  <axis>
+    <xyz>0 1 0</xyz>
+  </axis>
+</joint>
+
+<link name='slider2_support_right'>
+  <pose>0.259807621135 -0.055 0 1.5707 3.66519 0</pose>
+  <self_collide>1</self_collide>
+
+<inertial>
+<mass>0.294</mass>
+<pose>0.15 0 0 0 0 0</pose>
+<inertia>
+<ixx>0.004</ixx>
+<ixy>0</ixy>
+<ixz>0</ixz>
+<iyy>0.004</iyy>
+<iyz>0</iyz>
+<izz>0.009</izz>
+</inertia>
+</inertial>
+
+ <collision name='collision'>
+    <pose>0 0 0 0 0 0</pose>
+    <geometry>
+      <mesh>
+        <scale>0.001 0.001 0.001</scale>
+        <uri>model://test/meshes/asm_linkage_300.stl</uri>
+      </mesh>
+    </geometry>
+  </collision>
+
+  <visual name='visual'>
+    <pose>0 0 0 0 0 0</pose>
+    <geometry>
+      <mesh>
+        <scale>0.001 0.001 0.001</scale>
+         <uri>model://test/meshes/asm_linkage_300.stl</uri>
+      </mesh>
+    </geometry>
+  </visual>
+
+</link>
+
+<joint type="revolute" name="slider2_support_right_joint">
+  <pose>0 0 0 0 0 0</pose>
+  <parent>slider2</parent>
+  <child>slider2_support_right</child>
+  <axis>
+    <xyz>0 1 0</xyz>
+  </axis>
+</joint>
+
+<link name="slider3">
+  <pose>0.344673758792 0 0 0 0 0</pose>
+      <kinematic>1</kinematic>
+      <self_collide>1</self_collide>
+
+<inertial>
+<mass>3.3</mass>
+</inertial>
+
+<collision name="collision">
+ <geometry>
+ <box>
+ <size>0.005 0.5 0.01</size>
+ </box>
+  </geometry>
+ </collision>
+
+  <visual name="visual">
+    <geometry>
+      <box>
+      <size>0.005 0.5 0.01</size>
+      </box>
+    </geometry>
+  </visual>
+
+</link>
+
+<joint type="prismatic" name="base_slider3">
+<pose>0 0 0 0 0 0</pose>
+<parent>world</parent>
+<child>slider3</child>
+<axis>
+<xyz>1 0 0</xyz>
+<limit>
+<lower>-0.604481379927</lower>
+<upper>0.595518620073</upper>
+</limit>
+</axis>
+</joint>
+
+<link name='slider3_support_left'>
+  <pose>0.344673758792 0.085 0 1.5707 -2.53334707359 0</pose>
+  <self_collide>1</self_collide>
+
+<inertial>
+<mass>0.348</mass>
+<pose>0.21 0 0 0 0 0</pose>
+<inertia>
+<ixx>0.004</ixx>
+<ixy>0</ixy>
+<ixz>0</ixz>
+<iyy>0.004</iyy>
+<iyz>0</iyz>
+<izz>0.009</izz>
+</inertia>
+</inertial>
+
+ <collision name='collision'>
+    <pose>0 0 0 0 0 0</pose>
+    <geometry>
+      <mesh>
+        <scale>0.001 0.001 0.001</scale>
+        <uri>model://test/meshes/asm_linkage_420.stl</uri>
+      </mesh>
+    </geometry>
+  </collision>
+
+  <visual name='visual'>
+    <pose>0 0 0 0 0 0</pose>
+    <geometry>
+      <mesh>
+        <scale>0.001 0.001 0.001</scale>
+         <uri>model://test/meshes/asm_linkage_420.stl</uri>
+      </mesh>
+    </geometry>
+  </visual>
+
+</link>
+
+<joint type="revolute" name="slider3_support_left_joint">
+  <pose>0 0 0 0 0 0</pose>
+  <parent>slider3</parent>
+  <child>slider3_support_left</child>
+  <axis>
+    <xyz>0 1 0</xyz>
+  </axis>
+</joint>
+
+<link name='slider3_support_right'>
+  <pose>0.344673758792 -0.085 0 1.5707 -2.53334707359 0</pose>
+  <self_collide>1</self_collide>
+
+<inertial>
+<mass>0.348</mass>
+<pose>0.21 0 0 0 0 0</pose>
+<inertia>
+<ixx>0.004</ixx>
+<ixy>0</ixy>
+<ixz>0</ixz>
+<iyy>0.004</iyy>
+<iyz>0</iyz>
+<izz>0.009</izz>
+</inertia>
+</inertial>
+
+ <collision name='collision'>
+    <pose>0 0 0 0 0 0</pose>
+    <geometry>
+      <mesh>
+        <scale>0.001 0.001 0.001</scale>
+        <uri>model://test/meshes/asm_linkage_420.stl</uri>
+      </mesh>
+    </geometry>
+  </collision>
+
+  <visual name='visual'>
+    <pose>0 0 0 0 0 0</pose>
+    <geometry>
+      <mesh>
+        <scale>0.001 0.001 0.001</scale>
+         <uri>model://test/meshes/asm_linkage_420.stl</uri>
+      </mesh>
+    </geometry>
+  </visual>
+
+</link>
+
+<joint type="revolute" name="slider3_support_right_joint">
+  <pose>0 0 0 0 0 0</pose>
+  <parent>slider3</parent>
+  <child>slider3_support_right</child>
+
+  <axis>
+    <xyz>0 1 0</xyz>
+  </axis>
+  </joint>
+
+<link name='base_TSP'>
+  <pose>0 0 0.15 0 -1.57079632679 0 </pose>
+  <self_collide>1</self_collide>
+
+  <inertial>
+    <pose>0.045 0.025 0 0 0 0</pose>
+    <mass>0.5</mass>
+    <inertia>
+      <ixx>1.1E-03</ixx>
+      <ixy>0</ixy>
+      <ixz>0</ixz>
+      <iyy>1.1E-03</iyy>
+      <iyz>0</iyz>
+      <izz>1.1E-03</izz>
+    </inertia>
+  </inertial>
+
+  <collision name='collision'>
+    <pose>0 0 0 0 0 0</pose>
+    <geometry>
+      <mesh>
+        <scale>0.001 0.001 0.001</scale>
+   <uri>model://test/meshes/asm_pedal_blockv2simplified.stl</uri>
+      </mesh>
+    </geometry>
+  </collision>
+
+  <visual name='visual'>
+    <pose>0 0 0 0 0 0</pose>
+    <geometry>
+      <mesh>
+        <scale>0.001 0.001 0.001</scale>
+        <uri>model://test/meshes/asm_pedal_blockv2simplified.stl</uri>
+      </mesh>
+    </geometry>
+  </visual>
+
+</link>
+
+<joint type="revolute" name="slider1_support_left_base_TSP">
+  <pose>0 0 -0.085 0 0 0</pose>
+  <parent>slider1_support_left</parent>
+  <child>base_TSP</child>
+  <axis>
+    <xyz>0 1 0</xyz>
+  </axis>
+</joint>
+
+<joint type="revolute" name="slider1_support_right_base_TSP">
+  <pose>0 0 0.085 0 0 0</pose>
+  <parent>slider1_support_right</parent>
+  <child>base_TSP</child>
+  <axis>
+    <xyz>0 1 0</xyz>
+  </axis>
+</joint>
+
+<joint type="revolute" name="base_TSP_slider2_support_left">
+  <pose>0.3 0 0 0 0 0</pose>
+
+  <parent>base_TSP</parent>
+  <child>slider2_support_left</child>
+  <axis>
+    <xyz>0 1 0</xyz>
+
+  </axis>
+</joint>
+
+<joint type="revolute" name="base_TSP_slider2_support_right">
+  <pose>0.3 0 0 0 0 0</pose>
+
+  <parent>base_TSP</parent>
+  <child>slider2_support_right</child>
+  <axis>
+    <xyz>0 1 0</xyz>
+
+  </axis>
+</joint>
+
+<joint type="revolute" name="slider3_support_left_base_TSP">
+  <pose>0.09 0 -0.085 0 0 0</pose>
+
+  <parent>slider3_support_left</parent>
+  <child>base_TSP</child>
+  <axis>
+    <xyz>0 1 0 </xyz>
+
+  </axis>
+</joint>
+
+<joint type="revolute" name="slider3_support_right_base_TSP">
+  <pose>0.09 0 0.085 0 0 0</pose>
+
+  <parent>slider3_support_right</parent>
+  <child>base_TSP</child>
+  <axis>
+    <xyz>0 1 0 </xyz>
+
+  </axis>
+</joint>
+
+  </model>
+</sdf>
