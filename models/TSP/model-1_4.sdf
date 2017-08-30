@@ -1,18 +1,13 @@
 <?xml version='1.0'?>
 <sdf version='1.4'>
-  <model name="mobile_base">
+  <model name="TSP">
   <static> false </static>
 
 <link name="bed">
 
   <pose>0.340192378865 0 -0.1 0 0 0</pose>
-  <collision name="collision">
-  <geometry>
-  <box>
-  <size>1.2 0.8 0.01</size>
-  </box>
-  </geometry>
-  </collision>
+
+
    <visual name="visual">
    <material>
        <script>
@@ -46,7 +41,7 @@
      <visual name="visual">
         <geometry>
         <box>
-        <size>0.005 0.05 0.001</size>
+        <size>0.005 0.5 0.001</size>
         </box>
         </geometry>
       </visual>
@@ -54,7 +49,7 @@
      <collision name="collision">
        <geometry>
        <box>
-       <size>0.005 0.05 0.001</size>
+       <size>0.005 0.5 0.001</size>
        </box>
         </geometry>
       </collision>
@@ -80,7 +75,7 @@
     </joint>
 
 <link name='slider1_support_left'>
-  <pose>-0.259807621135 0.085 0 1.5708 -0.523599 0 </pose>
+  <pose>-0.259807621135 0 0 1.5708 -0.523599 0 </pose>
   <self_collide>1</self_collide>
 
 <inertial>
@@ -105,14 +100,7 @@
       </mesh>
     </geometry>
   </collision>
-  1->SetAngle(0,0.1);
 
-
-        this->motorJoint02->SetAngle(0,-0.1);
-
-
-
-        this->motorJoint03->SetAngle(0,0.5);
   <visual name='visual'>
     <pose>0 0 0 0 0 0</pose>
     <geometry>
@@ -135,62 +123,6 @@
   </axis>
 </joint>
 
-<link name='slider1_support_right'>
-  <pose>-0.259807621135 -0.085 0 1.5708 -0.523599 0 </pose>
-  <self_collide>1</self_collide>
-
-<inertial>
-<mass>0.294</mass>
-<pose>0.15 0 0 0 0 0</pose>
-<inertia>
-<ixx>0.004</ixx>
-<ixy>0</ixy>
-<ixz>0</ixz>
-<iyy>0.004</iyy>
-<iyz>0</iyz>
-<izz>0.009</izz>
-</inertia>
-</inertial>
-
-  <collision name='collision'>
-    <pose>0 0 0 0 0 0</pose>
-    <geometry>
-      <mesh>
-        <scale>0.001 0.001 0.001</scale>
-        <uri>model://test/meshes/asm_linkage_300.stl</uri>
-      </mesh>
-    </geometry>
-  </collision>
-
-  <visual name='visual'>
-    <pose>0 0 0 0 0 0</pose>1->SetAngle(0,0.1);
-
-
-this->motorJoint02->SetAngle(0,-0.1);
-
-
-
-this->motorJoint03->SetAngle(0,0.5);
-    <geometry>
-      <mesh>
-        <scale>0.001 0.001 0.001</scale>
-         <uri>model://test/meshes/asm_linkage_300.stl</uri>
-      </mesh>
-    </geometry>
-  </visual>
-
-</link>
-
-<joint type="revolute" name="slider1_support_right_joint">
-  <pose>0 0 0 0 0 0</pose>
-  <parent>slider1</parent>
-  <child>slider1_support_right</child>
-  <axis>
-    <xyz>0 1 0</xyz>
-
-  </axis>
-</joint>
-
 <link name="slider2">
   <pose>0.259807621135 0 0 0 0 0</pose>
       <kinematic>1</kinematic>
@@ -203,7 +135,7 @@ this->motorJoint03->SetAngle(0,0.5);
 <collision name="collision">
  <geometry>
  <box>
- <size>0.005 0.05 0.01</size>
+ <size>0.005 0.5 0.01</size>
  </box>
   </geometry>
  </collision>
@@ -211,7 +143,7 @@ this->motorJoint03->SetAngle(0,0.5);
   <visual name="visual">
     <geometry>
       <box>
-      <size>0.005 0.05 0.01</size>
+      <size>0.005 0.5 0.01</size>
       </box>
     </geometry>
   </visual>
@@ -232,7 +164,7 @@ this->motorJoint03->SetAngle(0,0.5);
 </joint>
 
 <link name='slider2_support_left'>
-  <pose>0.259807621135 0.055 0 1.5707 3.66519 0</pose>
+  <pose>0.259807621135 0 0 1.5707 3.66519 0</pose>
   <self_collide>1</self_collide>
 
 <inertial>
@@ -279,54 +211,6 @@ this->motorJoint03->SetAngle(0,0.5);
   </axis>
 </joint>
 
-<link name='slider2_support_right'>
-  <pose>0.259807621135 -0.055 0 1.5707 3.66519 0</pose>
-  <self_collide>1</self_collide>
-
-<inertial>
-<mass>0.294</mass>
-<pose>0.15 0 0 0 0 0</pose>
-<inertia>
-<ixx>0.004</ixx>
-<ixy>0</ixy>
-<ixz>0</ixz>
-<iyy>0.004</iyy>
-<iyz>0</iyz>
-<izz>0.009</izz>
-</inertia>
-</inertial>
-
- <collision name='collision'>
-    <pose>0 0 0 0 0 0</pose>
-    <geometry>
-      <mesh>
-        <scale>0.001 0.001 0.001</scale>
-        <uri>model://test/meshes/asm_linkage_300.stl</uri>
-      </mesh>
-    </geometry>
-  </collision>
-
-  <visual name='visual'>
-    <pose>0 0 0 0 0 0</pose>
-    <geometry>
-      <mesh>
-        <scale>0.001 0.001 0.001</scale>
-         <uri>model://test/meshes/asm_linkage_300.stl</uri>
-      </mesh>
-    </geometry>
-  </visual>
-
-</link>
-
-<joint type="revolute" name="slider2_support_right_joint">
-  <pose>0 0 0 0 0 0</pose>
-  <parent>slider2</parent>
-  <child>slider2_support_right</child>
-  <axis>
-    <xyz>0 1 0</xyz>
-  </axis>
-</joint>
-
 <link name="slider3">
   <pose>0.344673758792 0 0 0 0 0</pose>
       <kinematic>1</kinematic>
@@ -339,7 +223,7 @@ this->motorJoint03->SetAngle(0,0.5);
 <collision name="collision">
  <geometry>
  <box>
- <size>0.005 0.05 0.01</size>
+ <size>0.005 0.5 0.01</size>
  </box>
   </geometry>
  </collision>
@@ -347,7 +231,7 @@ this->motorJoint03->SetAngle(0,0.5);
   <visual name="visual">
     <geometry>
       <box>
-      <size>0.005 0.05 0.01</size>
+      <size>0.005 0.5 0.01</size>
       </box>
     </geometry>
   </visual>
@@ -367,8 +251,9 @@ this->motorJoint03->SetAngle(0,0.5);
 </axis>
 </joint>
 
+
 <link name='slider3_support_left'>
-  <pose>0.344673758792 0.085 0 1.5707 -2.53334707359 0</pose>
+  <pose>0.344673758792 0 0 1.5707 -2.53334707359 0</pose>
   <self_collide>1</self_collide>
 
 <inertial>
@@ -415,57 +300,9 @@ this->motorJoint03->SetAngle(0,0.5);
   </axis>
 </joint>
 
-<link name='slider3_support_right'>
-  <pose>0.344673758792 -0.085 0 1.5707 -2.53334707359 0</pose>
-  <self_collide>1</self_collide>
-
-<inertial>
-<mass>0.348</mass>
-<pose>0.21 0 0 0 0 0</pose>
-<inertia>
-<ixx>0.004</ixx>
-<ixy>0</ixy>
-<ixz>0</ixz>
-<iyy>0.004</iyy>
-<iyz>0</iyz>
-<izz>0.009</izz>
-</inertia>
-</inertial>
-
- <collision name='collision'>
-    <pose>0 0 0 0 0 0</pose>
-    <geometry>
-      <mesh>
-        <scale>0.001 0.001 0.001</scale>
-        <uri>model://test/meshes/asm_linkage_420.stl</uri>
-      </mesh>
-    </geometry>
-  </collision>
-
-  <visual name='visual'>
-    <pose>0 0 0 0 0 0</pose>
-    <geometry>
-      <mesh>
-        <scale>0.001 0.001 0.001</scale>
-         <uri>model://test/meshes/asm_linkage_420.stl</uri>
-      </mesh>
-    </geometry>
-  </visual>
-
-</link>
-
-<joint type="revolute" name="slider3_support_right_joint">
-  <pose>0 0 0 0 0 0</pose>
-  <parent>slider3</parent>
-  <child>slider3_support_right</child>
-
-  <axis>
-    <xyz>0 1 0</xyz>
-  </axis>
-  </joint>
 
 <link name='base_TSP'>
-  <pose>0 0 0.15 0 -1.57079632679 0 </pose>
+  <pose>0 0 0.15 0 -1.57079632679 0</pose>
   <self_collide>1</self_collide>
 
   <inertial>
@@ -486,7 +323,9 @@ this->motorJoint03->SetAngle(0,0.5);
     <geometry>
       <mesh>
         <scale>0.001 0.001 0.001</scale>
-   <uri>model://test/meshes/asm_pedal_blockv2simplified.stl</uri>
+       <!-- <uri>model://test/meshes/asm_pedal_blockv2simplified.stl</uri>-->
+        <uri>model://test/meshes/asm_pedal_blockv2.stl.stl</uri>
+
       </mesh>
     </geometry>
   </collision>
@@ -496,7 +335,8 @@ this->motorJoint03->SetAngle(0,0.5);
     <geometry>
       <mesh>
         <scale>0.001 0.001 0.001</scale>
-        <uri>model://test/meshes/asm_pedal_blockv2simplified.stl</uri>
+        <!--<uri>model://test/meshes/asm_pedal_blockv2simplified.stl</uri>-->
+        <uri>model://test/meshes/asm_pedal_blockv2.stl.stl</uri>
       </mesh>
     </geometry>
   </visual>
@@ -504,9 +344,8 @@ this->motorJoint03->SetAngle(0,0.5);
 </link>
 
 
-
 <joint type="revolute" name="slider1_support_left_base_TSP">
-  <pose>0 0.085 0 0 0 0</pose>
+  <pose>0 0 0 0 0 0</pose>
   <parent>slider1_support_left</parent>
   <child>base_TSP</child>
   <axis>
@@ -514,14 +353,6 @@ this->motorJoint03->SetAngle(0,0.5);
   </axis>
 </joint>
 
-<joint type="revolute" name="slider1_support_right_base_TSP">
-  <pose>0 -0.085 0 0 0 0</pose>
-  <parent>slider1_support_right</parent>
-  <child>base_TSP</child>
-  <axis>
-    <xyz>0 1 0</xyz>
-  </axis>
-</joint>
 
 <joint type="revolute" name="base_TSP_slider2_support_left">
   <pose>0.3 0 0 0 0 0</pose>
@@ -534,19 +365,9 @@ this->motorJoint03->SetAngle(0,0.5);
   </axis>
 </joint>
 
-<joint type="revolute" name="base_TSP_slider2_support_right">
-  <pose>0.3 0 0 0 0 0</pose>
-
-  <parent>base_TSP</parent>
-  <child>slider2_support_right</child>
-  <axis>
-    <xyz>0 1 0</xyz>
-
-  </axis>
-</joint>
 
 <joint type="revolute" name="slider3_support_left_base_TSP">
-  <pose>0.09 0.085 0 0 0 0</pose>
+  <pose>0.09 0 0 0 0 0</pose>
 
   <parent>slider3_support_left</parent>
   <child>base_TSP</child>
@@ -556,16 +377,15 @@ this->motorJoint03->SetAngle(0,0.5);
   </axis>
 </joint>
 
-<joint type="revolute" name="slider3_support_right_base_TSP">
-  <pose>0.09 -0.085 0 0 0 0</pose>
 
-  <parent>slider3_support_right</parent>
-  <child>base_TSP</child>
-  <axis>
-    <xyz>0 1 0 </xyz>
 
-  </axis>
-</joint>
+
+
+
+
+
+
+
 
   </model>
 </sdf>
