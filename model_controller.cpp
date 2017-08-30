@@ -6,10 +6,10 @@ namespace gazebo
 
    ModelPush::ModelPush()
     {
-this->robotName="mobile_base";
-this->motorJointName01=robotName+"::"+"base_slider1";
-this->motorJointName02=robotName+"::"+"base_slider2";
-this->motorJointName03=robotName+"::"+"base_slider3";
+
+this->motorJointName01="base_slider1";
+this->motorJointName02="base_slider2";
+this->motorJointName03="base_slider3";
 
 
     }
@@ -34,7 +34,7 @@ event::Events::DisconnectWorldUpdateBegin(this->updateConnection);
 
      if (!this->motorJoint01 || !this->motorJoint02 || !this->motorJoint03)
         {
-          gzerr << this->motorJoint01 << std::setw(10) << this->motorJoint02 << std::setw(10) << this->motorJoint03 << std::setw(10) << " some of them weren't found\n";
+          gzerr << this->motorJointName01 << std::setw(20) << this->motorJointName02 << std::setw(20) << this->motorJointName03 << std::setw(20) << " some of them weren't found\n";
           return;
         }
 
@@ -103,7 +103,7 @@ event::Events::DisconnectWorldUpdateBegin(this->updateConnection);
       for(physics::Joint_V::iterator jit=activeJoints.begin(); jit!=activeJoints.end(); ++jit)
       {
        std::cout << "name: " << std::setw(40) << std::left << (*jit)->GetName() << "angle: " << std::setw(15) << std::left << (*jit)->GetAngle(0)<<"velocity: "<< std::setw(15) << std::left << (*jit)->GetVelocity(0)<<std::endl;// << setw(4) << hourlyRate << endl;
-
+      std::cout << "udalo sie";
       }
 
 
