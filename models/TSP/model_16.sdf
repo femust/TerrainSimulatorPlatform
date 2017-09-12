@@ -2,7 +2,7 @@
 <sdf version='1.6'>
   <model name="TSP">
   <static> false </static>
-<!--
+
 <link name="bed">
   <pose>0.340192378865 0 -0.1 0 0 0</pose>
  <collision name="collision">
@@ -31,7 +31,7 @@
 <pose>0 0 0 0 0 0</pose>
 <parent>world</parent>
 <child>bed</child>
-</joint>-->
+</joint>
 
 <link name="slider1">
 
@@ -129,7 +129,7 @@
 
   </axis>
 </joint>
-<!--
+
 <link name='slider1_support_right'>
   <pose>-0.259807621135 -0.086 0 1.5708 -0.523599 0 </pose>
   <self_collide>1</self_collide>
@@ -583,6 +583,6 @@
 
   </axis>
 </joint>
--->
+
   </model>
 </sdf>
