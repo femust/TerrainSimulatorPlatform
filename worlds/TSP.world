@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<sdf version="1.4">
+<sdf version="1.6">
   <world name="TSP_world">
 
 
@@ -16,21 +16,6 @@
    <uri>model://TSP</uri>
  <plugin name="control_TSP" filename="libmodel_controller.so"/>
  </include>
-
-
-<!--
-
-      <model name="can1">
-        <include>
-        <pose> 0 1 0 0 0 0 </pose>
-          <static>true</static>
-          <uri>model://coke_can</uri>
-        </include>
-      </model>
-
--->
-
-
 
 
 

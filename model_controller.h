@@ -11,6 +11,9 @@
 #include<iomanip>
 #include<iterator>
 #include<cmath>
+#include<math.h>
+
+
 
 
 
@@ -18,8 +21,8 @@ namespace gazebo
 {
  class ModelPush : public ModelPlugin
   {
- public: ModelPush();
-  public: ~ModelPush();
+   public: ModelPush();
+   public: ~ModelPush();
    public: void Load(physics::ModelPtr _parent, sdf::ElementPtr /*_sdf*/);
    public: void OnUpdate(const common::UpdateInfo & /*_info*/); //virtual?
 
@@ -44,7 +47,9 @@ namespace gazebo
    private: physics::JointPtr motorJoint02;
    private: physics::JointPtr motorJoint03;
 
-    private: std::string robotName;
+   private: std::string robotName;
+
+    private: int attempt;
   };
 
  }
